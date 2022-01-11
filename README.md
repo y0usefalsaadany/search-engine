@@ -1,7 +1,7 @@
 # search-engine
 simple search engine
 
-# to run
+# to running
 open cmd then run 
 ```
 cd server
