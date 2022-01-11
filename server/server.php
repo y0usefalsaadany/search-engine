@@ -36,27 +36,3 @@ if(strpos($response,'.')){
 }else{
     socket_write($accept, $error , strlen($error )) or die("Could not write output\n");
 }
-
-
-
-
-
-
-
-
-
-
-// switch($response){
-// 	case strpos($response,'.'):
-// 		$output = "error";
-// 		socket_write($accept, $output, strlen ($output)) or die("Could not write output\n");
-// 		break;
-// 	case "google":
-// 		echo "google";
-// 		break;
-// 	// default:
-// 	// 	require "views/error/404notfound.php";
-// }
-// $output = readline("[+] Enter Response : ");
-// socket_write($accept, $output, strlen ($output)) or die("Could not write output\n");
-//socket_close($socket);
