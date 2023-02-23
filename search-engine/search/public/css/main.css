@@ -1,0 +1,163 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* Global Ruls */
+:root {
+  --min-background: #efefef;
+  --dark-background: #252835;
+  --stroke-color: #383d52;
+  --animation-color: #0e6f41;
+  --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --color-dark: #252835;
+  --hover-bg: #cccaca;
+}
+
+body {
+  background-color: var(--min-background);
+  font-family: "Poppins", sans-serif;
+}
+
+body.dark {
+  background-color: var(--dark-background);
+  --min-background: var(--dark-background);
+  --animation-color: #01fe87;
+  --color-dark: #efefef;
+  --hover-bg: #514e4e;
+}
+
+/* ========= Start Search ========= */
+.text {
+  margin-top: 10rem;
+}
+
+.text h3 {
+  position: relative;
+  font-size: 45px;
+  color: var(--min-background);
+  -webkit-text-stroke: 1px var(--stroke-color);
+}
+
+.text h3::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  color: var(--animation-color);
+  -webkit-text-stroke: 0vh var(--stroke-color);
+  border-right: 2px solid var(--animation-color);
+  overflow: hidden;
+  animation: textAnimate 6s linear infinite;
+}
+
+/* Text KeyFrame Animation */
+@keyframes textAnimate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  70%,
+  90% {
+    width: 100%;
+  }
+}
+
+/* ========= Search Bar Start ========= */
+.wrapper {
+  max-width: 450px;
+  margin: 5rem auto;
+}
+
+.wrapper .search-input {
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: var(--shadow-black-100);
+}
+
+.search-input input {
+  height: 55px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  background: var(--min-background);
+  color: var(--color-dark);
+}
+
+.search-input.active input {
+  border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box {
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-input.active .autocom-box {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.autocom-box li {
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+  color: var(--color-dark);
+}
+
+.search-input.active .autocom-box li {
+  display: block;
+}
+.autocom-box li:hover {
+  background: var(--hover-bg);
+}
+
+.search-input .icon {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 20px;
+  color: var(--animation-color);
+  cursor: pointer;
+}
+
+/* ========= Toggle Them - Light and Dark ========= */
+.toggle-them {
+  position: fixed;
+  right: 5px;
+  top: calc(50% - 100px);
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--dark-background);
+  box-shadow: var(--shadow-black-100);
+  z-index: 1200;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  text-align: center;
+}
+
+.toggle-them i {
+  line-height: 40px;
+  color: var(--animation-color);
+}
